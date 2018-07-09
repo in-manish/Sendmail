@@ -1,0 +1,18 @@
+body{
+	width: 100%;
+	height: 100%;
+	background: salmon;
+}
+.btn-container{
+	margin-top: 300px;
+	margin-left: 38%;
+
+}
+h1{
+	color: salmon;
+}
+.btn{
+	height: 75px;
+	width: 300px;
+	opacity: 5
+}

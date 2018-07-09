@@ -1,0 +1,25 @@
+{% extends 'sendmail/base.html' %}
+{% load static %}
+{% block head %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/composemail.css' %}">
+{% endblock %}
+
+{% block content %}
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12" id="mail-container">
+				<form action="send"method="post">
+					{% csrf_token %}
+					{% for field in current_name %}
+						<div class="form-group">
+						  {{ field.label_tag }}
+						  {{ field }}
+						 </div>
+					{% endfor %}
+					<button type="submit" class="btn btn-warning active btn-block" id="sent" value="Ok"> Send</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
