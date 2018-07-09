@@ -1,0 +1,18 @@
+{% extends 'registration/base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+
+  
+  <div class="text-center" style="margin-top: 100px;margin-left:35%;background-color: lightblue;height: 300px; width: 400px;padding-top: 40px;">
+  	<div style="margin-top: 30px;">
+  	  <h2>Login</h2>
+	  <form method="post" class="form-signin">
+	    {% csrf_token %}
+	    {{ form.as_p }}
+	    <button type="submit">Login</button>
+	  </form>
+	</div>
+  </div>
+{% endblock %}
