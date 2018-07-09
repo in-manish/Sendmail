@@ -10,6 +10,10 @@
 {% block content %}
 	<h1>How are you!</h1>
 	<div class="btn-container">
-		<button class="btn btn-primary active">Compose Mail</button>
+		<form action="send" method="post">
+			{% csrf_token %}
+			<button type="submit" class="btn btn-primary active">Compose Mail</button>
+			
+		</form>
 	</div>
 {% endblock %}

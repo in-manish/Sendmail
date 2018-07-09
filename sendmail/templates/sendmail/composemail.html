@@ -10,8 +10,12 @@
 			<div class="col-md-12" id="mail-container">
 				<form action="send"method="post">
 					{% csrf_token %}
-					<div class="form-group">
-					  {{ current_name }}
+					{% for field in current_name %}
+						<div class="form-group">
+						  {{ field.label_tag }}
+						  {{ field }}
+						 </div>
+					{% endfor %}
 					<button type="submit" class="btn btn-warning active btn-block" id="sent" value="Ok"> Send</button>
 				</form>
 			</div>

@@ -1,4 +1,8 @@
 from django.shortcuts import render
+from django.core.mail import send_mail
+from django.conf import settings
+
+
 from sendmail.forms import ComposeMail
 
 # Create your views here.
@@ -6,11 +10,15 @@ from sendmail.forms import ComposeMail
 def composemail(request):
 	if request.method == 'POST':
 		xmail = ComposeMail(request.POST)
-		# if xmail.is_valid():
-		# reciever = xmail.cleaned_data['reciever']
-		# subject = xmail.cleaned_data['subject']
-		# msg = xmail.cleaned_data['msg']
-		return render(request, 'sendmail/composemail.html',{'current_name':xmail} )
+		if xmail.is_valid():
+			send_mail(
+				xmail.cleaned_data['subject'],
+				xmail.cleaned_data['msg'],
+				settings.EMAIL_HOST_USER,
+				[xmail.cleaned_data['reciever']]
+				)
+			xmail=""
+			return render(request, 'sendmail/composemail.html',{'current_name':xmail} )
 	return render(request, 'sendmail/composemail.html', {'current_name':ComposeMail(request.GET)})
 
 def home(request):
