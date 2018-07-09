@@ -1,0 +1,15 @@
+{% extends 'sendmail/base.html' %}
+{% load static %}
+
+{% block head %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+
+{% endblock %}
+
+
+{% block content %}
+	<h1>How are you!</h1>
+	<div class="btn-container">
+		<button class="btn btn-primary active">Compose Mail</button>
+	</div>
+{% endblock %}

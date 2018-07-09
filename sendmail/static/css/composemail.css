@@ -1,0 +1,16 @@
+
+body{
+	background: honeydew;
+}
+#mail-container{
+	color: red;
+	background: teal;
+	height: 600px;
+	margin-top: 5%;
+}
+#id_msg{
+	height: 300px;
+}
+#id_sent{
+	align-self: right;
+}
